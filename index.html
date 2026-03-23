@@ -7,7 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
+:root
   --bg:#F5F5F2;--bg2:#EAEAE7;--card:#fff;
   --border:rgba(0,0,0,0.08);--border2:rgba(0,0,0,0.14);
   --text:#181818;--t2:#5A5A56;--t3:#9A9A92;
@@ -49,7 +49,7 @@ button:hover{background:var(--bg2)}
 .banner{border-radius:var(--r);padding:10px 15px;margin-bottom:13px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--rbg);border:1px solid #F0BEBE}
 .banner p{font-size:12px;color:var(--red)}
 
-.mcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:13px}
+.mcards{display:grid;grid-template-columns:repeat(4,minma(0,1fr));gap:9px;margin-bottom:13px}
 .mc{background:var(--bg2);border-radius:var(--r2);padding:12px 14px}
 .mc .lbl{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
 .mc .val{font-size:20px;font-weight:700;font-family:monospace;line-height:1.1}
@@ -235,22 +235,22 @@ const MKTS={'0x47c031236e19d024b42f8ae6780e44a573170703':'BTC','0x70d95587d40a2c
 const mktN=a=>MKTS[a?.toLowerCase()]??(a?a.slice(0,5)+'…':'?');
 
 async function fetchGMX(addr){
-  const q=`{tradeActions(where:{account_eq:"${addr.toLowerCase()}"},orderBy:timestamp_ASC,limit:1000){eventName timestamp marketAddress isLong sizeDeltaUsd realizedPnlUsd}}`;  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
+  const q=`{tradeActions(where:{account_eq:"${addr.toLowerCase()}"},orderBy:timestamp_ASC,limit:1000){eventName timestamp marketAddress isLong sizeDeltaUsd basePnlUsd}}`;  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
   const j=await r.json();
   if(j.errors?.length)throw new Error(j.errors[0].message);
   const ev=(j.data?.tradeActions??[]).filter(t=>t.eventName==='PositionIncrease'||t.eventName==='PositionDecrease');
   if(!ev.length)throw new Error('Нет данных по адресу в GMX v2 Arbitrum');
   let cum=0;
-  const curve=ev.map(t=>{cum+=parseFloat(t.realizedPnlUsd??0)/1e30;return{l:new Date(t.transaction.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric'}),p:cum}});
+  const curve=ev.map(t=>{cum+=parseFloat(t.basePnlUsd??0)/1e30;return{l:new Date(t.transaction.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric'}),p:cum}});
   const closes=ev.filter(t=>t.eventName==='PositionDecrease');
-  const wins=closes.filter(t=>parseFloat(t.realizedPnlUsd??0)>0).length;
+  const wins=closes.filter(t=>parseFloat(t.basePnlUsd??0)>0).length;
   const mmap={};ev.forEach(t=>{const m=mktN(t.marketAddress);mmap[m]=(mmap[m]??0)+1});
   const hrs=Array(24).fill(0);ev.forEach(t=>{hrs[new Date(t.transaction.timestamp*1000).getUTCHours()]++});
   const activity=[...closes].reverse().slice(0,30).map(t=>({
     date:new Date(t.transaction.timestamp*1000).toLocaleDateString('ru',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}),
     market:mktN(t.marketAddress)+'/USD',side:t.isLong?'Long':'Short',
     size:fmtK(parseFloat(t.sizeDeltaUsd??0)/1e30),
-    rpnl:parseFloat(t.realizedPnlUsd??0)/1e30,
+    rpnl:parseFloat(t.basePnlUsd??0)/1e30,
     type:t.eventName==='PositionDecrease'?'Market Decrease':'Market Increase'
   }));
   return{positions:DEMO_POS,activity,curve,mmap,hrs,winRate:closes.length?wins/closes.length*100:0,closedCount:closes.length,isDemo:false};
