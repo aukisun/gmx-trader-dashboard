@@ -95,36 +95,36 @@ tbody tr:hover td{background:var(--bg)}
 <div class="top">
   <div>
     <div class="brand-name">GMX <em>Trader Intel</em></div>
-    <div class="brand-sub">Arbitrum V2 · Subgraph</div>
+    <div class="brand-sub">Arbitrum V2 Â· Subgraph</div>
   </div>
   <div class="chips" id="chips"></div>
   <div class="irow">
-    <input id="inp" placeholder="0x… адрес кошелька" />
-    <button class="bp" onclick="handleAdd()">+ Добавить</button>
+    <input id="inp" placeholder="0xâ¦ Ð°Ð´ÑÐµÑ ÐºÐ¾ÑÐµÐ»ÑÐºÐ°" />
+    <button class="bp" onclick="handleAdd()">+ ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ</button>
   </div>
 </div>
 
 <div class="nav" id="nav" style="display:none">
-  <button class="ntab on" onclick="switchTab('ov',this)">Обзор</button>
-  <button class="ntab" onclick="switchTab('pos',this)">Открытые позиции <span class="nbadge" id="posn"></span></button>
-  <button class="ntab" onclick="switchTab('act',this)">Активность</button>
-  <button class="ntab" onclick="switchTab('ai',this)">AI Анализ</button>
+  <button class="ntab on" onclick="switchTab('ov',this)">ÐÐ±Ð·Ð¾Ñ</button>
+  <button class="ntab" onclick="switchTab('pos',this)">ÐÑÐºÑÑÑÑÐµ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¸ <span class="nbadge" id="posn"></span></button>
+  <button class="ntab" onclick="switchTab('act',this)">ÐÐºÑÐ¸Ð²Ð½Ð¾ÑÑÑ</button>
+  <button class="ntab" onclick="switchTab('ai',this)">AI ÐÐ½Ð°Ð»Ð¸Ð·</button>
 </div>
 
 <div class="main">
   <div id="se" class="sbox">
-    <h3>Введите адрес трейдера с GMX Leaderboard</h3>
-    <p>История трейдов, открытые позиции и AI-разбор · GMX v2 Arbitrum</p>
-    <button class="bp" onclick="loadDefault()">Загрузить пример</button>
+    <h3>ÐÐ²ÐµÐ´Ð¸ÑÐµ Ð°Ð´ÑÐµÑ ÑÑÐµÐ¹Ð´ÐµÑÐ° Ñ GMX Leaderboard</h3>
+    <p>ÐÑÑÐ¾ÑÐ¸Ñ ÑÑÐµÐ¹Ð´Ð¾Ð², Ð¾ÑÐºÑÑÑÑÐµ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¸ Ð¸ AI-ÑÐ°Ð·Ð±Ð¾Ñ Â· GMX v2 Arbitrum</p>
+    <button class="bp" onclick="loadDefault()">ÐÐ°Ð³ÑÑÐ·Ð¸ÑÑ Ð¿ÑÐ¸Ð¼ÐµÑ</button>
   </div>
   <div id="sl" style="display:none" class="sbox">
-    <h3><span class="spin"></span><span id="lmsg">Загружаем…</span></h3>
+    <h3><span class="spin"></span><span id="lmsg">ÐÐ°Ð³ÑÑÐ¶Ð°ÐµÐ¼â¦</span></h3>
     <p id="lsub" style="font-family:monospace;font-size:11px"></p>
   </div>
   <div id="sd" style="display:none">
     <div id="ebanner" style="display:none" class="banner">
       <p id="etext"></p>
-      <button class="bsm" onclick="applyDemo()">Демо-данные</button>
+      <button class="bsm" onclick="applyDemo()">ÐÐµÐ¼Ð¾-Ð´Ð°Ð½Ð½ÑÐµ</button>
     </div>
 
     <!-- OVERVIEW -->
@@ -133,8 +133,8 @@ tbody tr:hover td{background:var(--bg)}
       <div class="pills" id="pills"></div>
       <div class="card"><div class="ctitle">Cumulative Realized PnL</div><div style="position:relative;height:195px"><canvas id="cpnl"></canvas></div></div>
       <div class="two">
-        <div class="card"><div class="ctitle">Рынки</div><div style="position:relative;height:170px"><canvas id="cmkt"></canvas></div></div>
-        <div class="card"><div class="ctitle">Активность по часам UTC</div><div style="position:relative;height:170px"><canvas id="chrs"></canvas></div></div>
+        <div class="card"><div class="ctitle">Ð ÑÐ½ÐºÐ¸</div><div style="position:relative;height:170px"><canvas id="cmkt"></canvas></div></div>
+        <div class="card"><div class="ctitle">ÐÐºÑÐ¸Ð²Ð½Ð¾ÑÑÑ Ð¿Ð¾ ÑÐ°ÑÐ°Ð¼ UTC</div><div style="position:relative;height:170px"><canvas id="chrs"></canvas></div></div>
       </div>
     </div>
 
@@ -143,9 +143,9 @@ tbody tr:hover td{background:var(--bg)}
       <div class="pills" id="pos-pills"></div>
       <div class="card" style="padding:0;overflow-x:auto">
         <table><thead><tr>
-          <th>Позиция</th><th>Side</th><th>Размер</th><th>Net Value</th>
-          <th>Unrealized PnL</th><th>Коллатераль</th>
-          <th>Entry Price</th><th>Mark Price</th><th>Ликвидация</th>
+          <th>ÐÐ¾Ð·Ð¸ÑÐ¸Ñ</th><th>Side</th><th>Ð Ð°Ð·Ð¼ÐµÑ</th><th>Net Value</th>
+          <th>Unrealized PnL</th><th>ÐÐ¾Ð»Ð»Ð°ÑÐµÑÐ°Ð»Ñ</th>
+          <th>Entry Price</th><th>Mark Price</th><th>ÐÐ¸ÐºÐ²Ð¸Ð´Ð°ÑÐ¸Ñ</th>
         </tr></thead><tbody id="pos-body"></tbody></table>
       </div>
     </div>
@@ -155,8 +155,8 @@ tbody tr:hover td{background:var(--bg)}
       <div class="pills" id="act-pills"></div>
       <div class="card" style="padding:0;overflow-x:auto">
         <table><thead><tr>
-          <th>Дата</th><th>Рынок</th><th>Side</th>
-          <th>Размер</th><th>Realized PnL</th><th>Тип</th>
+          <th>ÐÐ°ÑÐ°</th><th>Ð ÑÐ½Ð¾Ðº</th><th>Side</th>
+          <th>Ð Ð°Ð·Ð¼ÐµÑ</th><th>Realized PnL</th><th>Ð¢Ð¸Ð¿</th>
         </tr></thead><tbody id="act-body"></tbody></table>
       </div>
     </div>
@@ -164,15 +164,15 @@ tbody tr:hover td{background:var(--bg)}
     <!-- AI -->
     <div id="tai" style="display:none">
       <div class="ai-card">
-        <div class="ai-hd"><span class="ai-tag">AI Analysis</span><span class="ai-title">Разбор стратегии трейдера</span></div>
-        <div class="ai-body" id="ai-body"><span class="t3c"><span class="spin"></span>Анализируем…</span></div>
+        <div class="ai-hd"><span class="ai-tag">AI Analysis</span><span class="ai-title">Ð Ð°Ð·Ð±Ð¾Ñ ÑÑÑÐ°ÑÐµÐ³Ð¸Ð¸ ÑÑÐµÐ¹Ð´ÐµÑÐ°</span></div>
+        <div class="ai-body" id="ai-body"><span class="t3c"><span class="spin"></span>ÐÐ½Ð°Ð»Ð¸Ð·Ð¸ÑÑÐµÐ¼â¦</span></div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// ── DEMO DATA (из скринов GMX) ─────────────────────────────────────────────
+// ââ DEMO DATA (Ð¸Ð· ÑÐºÑÐ¸Ð½Ð¾Ð² GMX) âââââââââââââââââââââââââââââââââââââââââââââ
 const DEMO_POS=[
   {pair:'BTC/USD',lev:'14.58x',side:'Long', size:149997.77,net:10247.18,upnl:-47.79,    upct:-0.46,  col:10290.78,  entry:68699.49,mark:68665.93,liq:64366.87},
   {pair:'XRP/USD',lev:'8.62x', side:'Long', size:1199842.22,net:67147.31,upnl:-71993.63,upct:-51.50, col:139140.94, entry:1.4651,  mark:1.3793,  liq:1.3033},
@@ -183,20 +183,20 @@ const DEMO_POS=[
   {pair:'AVAX/USD',lev:'4.12x',side:'Short',size:81671.27, net:40098.53,upnl:19100.39,  upct:90.77,  col:19806.01,  entry:12.0514, mark:9.0512,  liq:14.8671},
 ];
 const DEMO_ACT=[
-  {date:'сег. 9:06', market:'XRP/USD',side:'Long', size:'13,194 USDC',   rpnl:null,   type:'Deposit'},
-  {date:'сег. 3:34', market:'SOL/USD',side:'Short',size:'-$108,204',     rpnl:6682.64,type:'Market Decrease'},
-  {date:'сег. 2:10', market:'SOL/USD',side:'Short',size:'-$200,000',     rpnl:12226.07,type:'Market Decrease'},
-  {date:'вч. 23:20', market:'BTC/USD',side:'Long', size:'1,650 USDC',    rpnl:null,   type:'Deposit'},
-  {date:'вч. 21:14', market:'XRP/USD',side:'Long', size:'13,198 USDC',   rpnl:null,   type:'Deposit'},
-  {date:'вч. 13:52', market:'BTC/USD',side:'Long', size:'1,650 USDC',    rpnl:null,   type:'Deposit'},
-  {date:'вч. 12:08', market:'BTC/USD',side:'Long', size:'+$50,008',      rpnl:null,   type:'Market Increase'},
-  {date:'вч. 12:08', market:'BTC/USD',side:'Long', size:'+$49,992',      rpnl:null,   type:'Market Increase'},
-  {date:'вч. 12:08', market:'BTC/USD',side:'Long', size:'+$49,996',      rpnl:null,   type:'Market Increase'},
-  {date:'вч. 2:01',  market:'XRP/USD',side:'Long', size:'13,198 USDC',   rpnl:null,   type:'Deposit'},
+  {date:'ÑÐµÐ³. 9:06', market:'XRP/USD',side:'Long', size:'13,194 USDC',   rpnl:null,   type:'Deposit'},
+  {date:'ÑÐµÐ³. 3:34', market:'SOL/USD',side:'Short',size:'-$108,204',     rpnl:6682.64,type:'Market Decrease'},
+  {date:'ÑÐµÐ³. 2:10', market:'SOL/USD',side:'Short',size:'-$200,000',     rpnl:12226.07,type:'Market Decrease'},
+  {date:'Ð²Ñ. 23:20', market:'BTC/USD',side:'Long', size:'1,650 USDC',    rpnl:null,   type:'Deposit'},
+  {date:'Ð²Ñ. 21:14', market:'XRP/USD',side:'Long', size:'13,198 USDC',   rpnl:null,   type:'Deposit'},
+  {date:'Ð²Ñ. 13:52', market:'BTC/USD',side:'Long', size:'1,650 USDC',    rpnl:null,   type:'Deposit'},
+  {date:'Ð²Ñ. 12:08', market:'BTC/USD',side:'Long', size:'+$50,008',      rpnl:null,   type:'Market Increase'},
+  {date:'Ð²Ñ. 12:08', market:'BTC/USD',side:'Long', size:'+$49,992',      rpnl:null,   type:'Market Increase'},
+  {date:'Ð²Ñ. 12:08', market:'BTC/USD',side:'Long', size:'+$49,996',      rpnl:null,   type:'Market Increase'},
+  {date:'Ð²Ñ. 2:01',  market:'XRP/USD',side:'Long', size:'13,198 USDC',   rpnl:null,   type:'Deposit'},
 ];
 function makeCurve(){
   const v=[2800,-400,1500,3200,-1200,4500,2100,-800,6600,3400,-2100,8900,5500,-1800,12000,7200,-3000,18900,11000,-4500,25000,15000,-6000,35000,19000,-7000,45000,21000,55000,62000,68800];
-  return v.map((p,i)=>({l:'День '+(i+1),p}));
+  return v.map((p,i)=>({l:'ÐÐµÐ½Ñ '+(i+1),p}));
 }
 function makeMmap(){
   const m={};
@@ -209,10 +209,10 @@ function demoData(){
   return{positions:DEMO_POS,activity:DEMO_ACT,curve:makeCurve(),mmap:makeMmap(),hrs,winRate:63.2,closedCount:247,isDemo:true};
 }
 
-// ── HELPERS ────────────────────────────────────────────────────────────────
+// ââ HELPERS ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 const $=id=>document.getElementById(id);
 const fmtK=v=>{const s=v<0?'-':'';const a=Math.abs(v);return s+(a>=1e6?'$'+(a/1e6).toFixed(2)+'M':a>=1000?'$'+(a/1000).toFixed(1)+'K':'$'+a.toFixed(2))};
-const fmtPx=v=>v==null?'—':v>=1?'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'$'+v.toFixed(6);
+const fmtPx=v=>v==null?'â':v>=1?'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:4}):'$'+v.toFixed(6);
 const pc=v=>v>=0?'pp':'pn';
 
 let traders={},activeAddr=null,chs={};
@@ -229,38 +229,40 @@ function switchTab(t,btn){
   ['ov','pos','act','ai'].forEach(id=>$('t'+id).style.display=id===t?'block':'none');
 }
 
-// ── GMX SUBGRAPH ───────────────────────────────────────────────────────────
+// ââ GMX SUBGRAPH âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 const SG='https://gmx.squids.live/gmx-synthetics-arbitrum:prod/api/graphql';
 const MKTS={'0x47c031236e19d024b42f8ae6780e44a573170703':'BTC','0x70d95587d40a2caf56bd97485ab3eec10bee6336':'ETH','0xc25cef6061cf5de5eb761b50e4743c1f5d7e5407':'LINK','0x09400d9db990d5ed3f35d7be61dfaeb900af03c9':'SOL','0xd9535bb5f58a1a75032416f2dfe7880c30575a41':'ARB','0x63dc80ee90f26363b3fcd609f3305958603993e5':'DOGE'};
-const mktN=a=>MKTS[a?.toLowerCase()]??(a?a.slice(0,5)+'…':'?');
+const mktN=a=>MKTS[a?.toLowerCase()]??(a?a.slice(0,5)+'â¦':'?');
 
 async function fetchGMX(addr){
-  const q=`{tradeActions(where:{account_eq:"${addr.toLowerCase()}"},orderBy:timestamp_ASC,limit:1000){eventName timestamp marketAddress isLong sizeDeltaUsd basePnlUsd}}`;  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
+  const SG='https://gmx.squids.live/gmx-synthetics-arbitrum:prod/api/graphql';
+  const q=`{positionChanges(where:{account_eq:"${addr}"},orderBy:timestamp_ASC,limit:1000){type timestamp market isLong sizeDeltaUsd basePnlUsd isWin}}`;
+  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
   const j=await r.json();
   if(j.errors?.length)throw new Error(j.errors[0].message);
-  const ev=(j.data?.tradeActions??[]).filter(t=>t.eventName==='PositionIncrease'||t.eventName==='PositionDecrease');
+  const ev=j.data?.positionChanges??[];
   if(!ev.length)throw new Error('Нет данных по адресу в GMX v2 Arbitrum');
   let cum=0;
-  const curve=ev.map(t=>{cum+=parseFloat(t.basePnlUsd??0)/1e30;return{l:new Date(t.transaction.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric'}),p:cum}});
-  const closes=ev.filter(t=>t.eventName==='PositionDecrease');
-  const wins=closes.filter(t=>parseFloat(t.basePnlUsd??0)>0).length;
-  const mmap={};ev.forEach(t=>{const m=mktN(t.marketAddress);mmap[m]=(mmap[m]??0)+1});
-  const hrs=Array(24).fill(0);ev.forEach(t=>{hrs[new Date(t.transaction.timestamp*1000).getUTCHours()]++});
+  const curve=ev.map(t=>{cum+=parseFloat(t.basePnlUsd??0)/1e30;return{l:new Date(t.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric'}),p:cum}});
+  const closes=ev.filter(t=>t.type==='decrease');
+  const wins=closes.filter(t=>t.isWin).length;
+  const mmap={};ev.forEach(t=>{const m=(t.market||'').replace('/USD','');mmap[m]=(mmap[m]??0)+1});
+  const hrs=Array(24).fill(0);ev.forEach(t=>{hrs[new Date(t.timestamp*1000).getUTCHours()]++});
   const activity=[...closes].reverse().slice(0,30).map(t=>({
-    date:new Date(t.transaction.timestamp*1000).toLocaleDateString('ru',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}),
-    market:mktN(t.marketAddress)+'/USD',side:t.isLong?'Long':'Short',
+    date:new Date(t.timestamp*1000).toLocaleDateString('ru',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}),
+    market:(t.market||'?')+'/USD',side:t.isLong?'Long':'Short',
     size:fmtK(parseFloat(t.sizeDeltaUsd??0)/1e30),
     rpnl:parseFloat(t.basePnlUsd??0)/1e30,
-    type:t.eventName==='PositionDecrease'?'Market Decrease':'Market Increase'
+    type:t.type==='decrease'?'Market Decrease':'Market Increase'
   }));
   return{positions:DEMO_POS,activity,curve,mmap,hrs,winRate:closes.length?wins/closes.length*100:0,closedCount:closes.length,isDemo:false};
 }
 
-// ── LOAD ───────────────────────────────────────────────────────────────────
+// ââ LOAD âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function loadTrader(addr){
   traders[addr]={status:'loading',data:null};
   activeAddr=addr;updateChips();setState('load');
-  $('lmsg').textContent='Загружаем историю трейдов из GMX Subgraph…';
+  $('lmsg').textContent='ÐÐ°Ð³ÑÑÐ¶Ð°ÐµÐ¼ Ð¸ÑÑÐ¾ÑÐ¸Ñ ÑÑÐµÐ¹Ð´Ð¾Ð² Ð¸Ð· GMX Subgraphâ¦';
   $('lsub').textContent=addr;
   try{
     const data=await fetchGMX(addr);
@@ -271,12 +273,12 @@ async function loadTrader(addr){
     const data=demoData();
     traders[addr]={status:'error',data};
     $('ebanner').style.display='flex';
-    $('etext').textContent='GMX Subgraph: '+err.message+' — показаны демо-данные';
+    $('etext').textContent='GMX Subgraph: '+err.message+' â Ð¿Ð¾ÐºÐ°Ð·Ð°Ð½Ñ Ð´ÐµÐ¼Ð¾-Ð´Ð°Ð½Ð½ÑÐµ';
     renderAll(data);
   }
   updateChips();
 }
-function loadDefault(){$('inp').value='0x1640e916e10610Ba39aAC5Cd8a08acF3cCae1A4c';handleAdd()}
+function loadDefault(){$('inp').value='0xEA31776d40a38292C378920eb09B9F857bc31B33';handleAdd()}
 function applyDemo(){
   if(!activeAddr)return;
   const d=demoData();
@@ -285,7 +287,7 @@ function applyDemo(){
   renderAll(d);updateChips();
 }
 
-// ── RENDER ──────────────────────────────────────────────────────────────────
+// ââ RENDER ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function renderAll(d){
   setState('data');
   const tu=d.positions.reduce((s,p)=>s+p.upnl,0);
@@ -295,19 +297,19 @@ function renderAll(d){
   const wp=d.positions.filter(p=>p.upnl>0).length;
 
   $('mcards').innerHTML=`
-    <div class="mc"><div class="lbl">Unrealized PnL</div><div class="val ${pc(tu)}">${fmtK(tu)}</div><div class="sub">${d.positions.length} открытых позиций</div></div>
-    <div class="mc"><div class="lbl">Total Exposure</div><div class="val">${fmtK(ts)}</div><div class="sub">суммарный размер</div></div>
-    <div class="mc"><div class="lbl">Win Rate</div><div class="val ${d.winRate>=50?'pp':'pn'}">${d.winRate.toFixed(1)}%</div><div class="sub">${d.closedCount} закрытых трейдов</div></div>
-    <div class="mc"><div class="lbl">Long / Short</div><div class="val">${longs} / ${shorts}</div><div class="sub">открытых позиций</div></div>`;
+    <div class="mc"><div class="lbl">Unrealized PnL</div><div class="val ${pc(tu)}">${fmtK(tu)}</div><div class="sub">${d.positions.length} Ð¾ÑÐºÑÑÑÑÑ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¹</div></div>
+    <div class="mc"><div class="lbl">Total Exposure</div><div class="val">${fmtK(ts)}</div><div class="sub">ÑÑÐ¼Ð¼Ð°ÑÐ½ÑÐ¹ ÑÐ°Ð·Ð¼ÐµÑ</div></div>
+    <div class="mc"><div class="lbl">Win Rate</div><div class="val ${d.winRate>=50?'pp':'pn'}">${d.winRate.toFixed(1)}%</div><div class="sub">${d.closedCount} Ð·Ð°ÐºÑÑÑÑÑ ÑÑÐµÐ¹Ð´Ð¾Ð²</div></div>
+    <div class="mc"><div class="lbl">Long / Short</div><div class="val">${longs} / ${shorts}</div><div class="sub">Ð¾ÑÐºÑÑÑÑÑ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¹</div></div>`;
 
   $('pills').innerHTML=`
-    <span class="pill">В плюсе: <b class="pp">${wp}</b></span>
-    <span class="pill">В минусе: <b class="pn">${d.positions.length-wp}</b></span>
-    ${d.isDemo?'<span class="pill demo">демо-данные</span>':''}`;
+    <span class="pill">Ð Ð¿Ð»ÑÑÐµ: <b class="pp">${wp}</b></span>
+    <span class="pill">Ð Ð¼Ð¸Ð½ÑÑÐµ: <b class="pn">${d.positions.length-wp}</b></span>
+    ${d.isDemo?'<span class="pill demo">Ð´ÐµÐ¼Ð¾-Ð´Ð°Ð½Ð½ÑÐµ</span>':''}`;
 
   buildPnL(d.curve);buildMkt(d.mmap);buildHrs(d.hrs);
   renderPositions(d);renderActivity(d);
-  $('ai-body').innerHTML='<span class="t3c"><span class="spin"></span>Анализируем…</span>';
+  $('ai-body').innerHTML='<span class="t3c"><span class="spin"></span>ÐÐ½Ð°Ð»Ð¸Ð·Ð¸ÑÑÐµÐ¼â¦</span>';
   runAI(d);
 }
 
@@ -316,9 +318,9 @@ function renderPositions(d){
   const tu=d.positions.reduce((s,p)=>s+p.upnl,0);
   const tc=d.positions.reduce((s,p)=>s+p.col,0);
   $('pos-pills').innerHTML=`
-    <span class="pill">Позиций: <b>${d.positions.length}</b></span>
+    <span class="pill">ÐÐ¾Ð·Ð¸ÑÐ¸Ð¹: <b>${d.positions.length}</b></span>
     <span class="pill">Unrealized PnL: <b class="${pc(tu)}">${fmtK(tu)}</b></span>
-    <span class="pill">Коллатераль: <b>${fmtK(tc)}</b></span>`;
+    <span class="pill">ÐÐ¾Ð»Ð»Ð°ÑÐµÑÐ°Ð»Ñ: <b>${fmtK(tc)}</b></span>`;
 
   $('pos-body').innerHTML=d.positions.map(p=>{
     const warn=p.side==='Short'?p.mark>p.liq*0.93:p.mark<p.liq*1.07;
@@ -331,7 +333,7 @@ function renderPositions(d){
       <td class="mn">${fmtK(p.col)}</td>
       <td class="mn" style="font-size:11px">${fmtPx(p.entry)}</td>
       <td class="mn" style="font-size:11px">${fmtPx(p.mark)}</td>
-      <td class="${warn?'pn mn':'mn'}" style="font-size:11px">${fmtPx(p.liq)}${warn?' ⚠':''}</td>
+      <td class="${warn?'pn mn':'mn'}" style="font-size:11px">${fmtPx(p.liq)}${warn?' â ':''}</td>
     </tr>`;
   }).join('');
 }
@@ -339,12 +341,12 @@ function renderPositions(d){
 function renderActivity(d){
   const cr=d.activity.filter(t=>t.rpnl!=null).reduce((s,t)=>s+(t.rpnl??0),0);
   $('act-pills').innerHTML=`
-    <span class="pill">Записей: <b>${d.activity.length}</b></span>
+    <span class="pill">ÐÐ°Ð¿Ð¸ÑÐµÐ¹: <b>${d.activity.length}</b></span>
     <span class="pill">Realized PnL: <b class="${pc(cr)}">${fmtK(cr)}</b></span>`;
 
   $('act-body').innerHTML=d.activity.map(t=>{
     const tc=t.type?.includes('Increase')?'act-i':t.type?.includes('Decrease')?'act-d':'act-dep';
-    const rpnl=t.rpnl!=null?`<span class="${pc(t.rpnl)}">${t.rpnl>=0?'+':''}${fmtK(t.rpnl)}</span>`:'<span class="t3c">—</span>';
+    const rpnl=t.rpnl!=null?`<span class="${pc(t.rpnl)}">${t.rpnl>=0?'+':''}${fmtK(t.rpnl)}</span>`:'<span class="t3c">â</span>';
     return`<tr>
       <td class="t3c" style="font-size:11px;white-space:nowrap">${t.date}</td>
       <td><b>${t.market}</b></td>
@@ -356,7 +358,7 @@ function renderActivity(d){
   }).join('');
 }
 
-// ── CHARTS ─────────────────────────────────────────────────────────────────
+// ââ CHARTS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 const TX='rgba(0,0,0,.38)';const GX='rgba(0,0,0,.05)';
 const CC=['#1D9E75','#2980B9','#D85A30','#8E44AD','#BA7517','#C0392B','#16A085'];
 function kc(k){if(chs[k]){chs[k].destroy();delete chs[k]}}
@@ -381,48 +383,48 @@ function buildHrs(hrs){
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:TX,font:{size:9}},grid:{display:false}},y:{ticks:{color:TX,font:{size:9},maxTicksLimit:4},grid:{color:GX}}}}});
 }
 
-// ── AI ──────────────────────────────────────────────────────────────────────
+// ââ AI ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function runAI(d){
   const longs=d.positions.filter(p=>p.side==='Long').length;
   const shorts=d.positions.filter(p=>p.side==='Short').length;
-  const posStr=d.positions.map(p=>`${p.pair} ${p.side} ${p.lev}: unrealized ${fmtK(p.upnl)} (${p.upct.toFixed(1)}%), размер ${fmtK(p.size)}`).join('\n');
+  const posStr=d.positions.map(p=>`${p.pair} ${p.side} ${p.lev}: unrealized ${fmtK(p.upnl)} (${p.upct.toFixed(1)}%), ÑÐ°Ð·Ð¼ÐµÑ ${fmtK(p.size)}`).join('\n');
   const topMkts=Object.entries(d.mmap).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k])=>k).join(', ');
-  const prompt=`Ты — эксперт по крипто-трейдингу деривативами на GMX Perpetuals. Проанализируй трейдера.
+  const prompt=`Ð¢Ñ â ÑÐºÑÐ¿ÐµÑÑ Ð¿Ð¾ ÐºÑÐ¸Ð¿ÑÐ¾-ÑÑÐµÐ¹Ð´Ð¸Ð½Ð³Ñ Ð´ÐµÑÐ¸Ð²Ð°ÑÐ¸Ð²Ð°Ð¼Ð¸ Ð½Ð° GMX Perpetuals. ÐÑÐ¾Ð°Ð½Ð°Ð»Ð¸Ð·Ð¸ÑÑÐ¹ ÑÑÐµÐ¹Ð´ÐµÑÐ°.
 
-Открытые позиции:
+ÐÑÐºÑÑÑÑÐµ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¸:
 ${posStr}
 
-Сводка:
-- Суммарный Unrealized PnL: ${fmtK(d.positions.reduce((s,p)=>s+p.upnl,0))}
+Ð¡Ð²Ð¾Ð´ÐºÐ°:
+- Ð¡ÑÐ¼Ð¼Ð°ÑÐ½ÑÐ¹ Unrealized PnL: ${fmtK(d.positions.reduce((s,p)=>s+p.upnl,0))}
 - Longs: ${longs}, Shorts: ${shorts}
-- Win Rate (закрытые): ${d.winRate.toFixed(1)}% из ${d.closedCount} трейдов
-- Топ рынки: ${topMkts}
-${d.isDemo?'(демо-данные для иллюстрации)':''}
+- Win Rate (Ð·Ð°ÐºÑÑÑÑÐµ): ${d.winRate.toFixed(1)}% Ð¸Ð· ${d.closedCount} ÑÑÐµÐ¹Ð´Ð¾Ð²
+- Ð¢Ð¾Ð¿ ÑÑÐ½ÐºÐ¸: ${topMkts}
+${d.isDemo?'(Ð´ÐµÐ¼Ð¾-Ð´Ð°Ð½Ð½ÑÐµ Ð´Ð»Ñ Ð¸Ð»Ð»ÑÑÑÑÐ°ÑÐ¸Ð¸)':''}
 
-Напиши 4 абзаца на русском:
-1. **Портфель** — структура позиций, long/short баланс, суммарная экспозиция.
-2. **Стиль** — плечи, выбор рынков, агрессивность.
-3. **Риски** — опасные позиции, XRP Long -51% и другие, близость к ликвидации.
-4. **Урок** — что конкретно взять в свою торговлю с цифрами.
+ÐÐ°Ð¿Ð¸ÑÐ¸ 4 Ð°Ð±Ð·Ð°ÑÐ° Ð½Ð° ÑÑÑÑÐºÐ¾Ð¼:
+1. **ÐÐ¾ÑÑÑÐµÐ»Ñ** â ÑÑÑÑÐºÑÑÑÐ° Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¹, long/short Ð±Ð°Ð»Ð°Ð½Ñ, ÑÑÐ¼Ð¼Ð°ÑÐ½Ð°Ñ ÑÐºÑÐ¿Ð¾Ð·Ð¸ÑÐ¸Ñ.
+2. **Ð¡ÑÐ¸Ð»Ñ** â Ð¿Ð»ÐµÑÐ¸, Ð²ÑÐ±Ð¾Ñ ÑÑÐ½ÐºÐ¾Ð², Ð°Ð³ÑÐµÑÑÐ¸Ð²Ð½Ð¾ÑÑÑ.
+3. **Ð Ð¸ÑÐºÐ¸** â Ð¾Ð¿Ð°ÑÐ½ÑÐµ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¸, XRP Long -51% Ð¸ Ð´ÑÑÐ³Ð¸Ðµ, Ð±Ð»Ð¸Ð·Ð¾ÑÑÑ Ðº Ð»Ð¸ÐºÐ²Ð¸Ð´Ð°ÑÐ¸Ð¸.
+4. **Ð£ÑÐ¾Ðº** â ÑÑÐ¾ ÐºÐ¾Ð½ÐºÑÐµÑÐ½Ð¾ Ð²Ð·ÑÑÑ Ð² ÑÐ²Ð¾Ñ ÑÐ¾ÑÐ³Ð¾Ð²Ð»Ñ Ñ ÑÐ¸ÑÑÐ°Ð¼Ð¸.
 
-Только конкретика.`;
+Ð¢Ð¾Ð»ÑÐºÐ¾ ÐºÐ¾Ð½ÐºÑÐµÑÐ¸ÐºÐ°.`;
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1300,messages:[{role:'user',content:prompt}]})});
     const data=await r.json();
-    const txt=data.content?.[0]?.text??'Недоступно';
+    const txt=data.content?.[0]?.text??'ÐÐµÐ´Ð¾ÑÑÑÐ¿Ð½Ð¾';
     $('ai-body').innerHTML=txt.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
-  }catch{$('ai-body').innerHTML='<span class="t3c">AI временно недоступен.</span>'}
+  }catch{$('ai-body').innerHTML='<span class="t3c">AI Ð²ÑÐµÐ¼ÐµÐ½Ð½Ð¾ Ð½ÐµÐ´Ð¾ÑÑÑÐ¿ÐµÐ½.</span>'}
 }
 
-// ── CHIPS ───────────────────────────────────────────────────────────────────
+// ââ CHIPS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function updateChips(){
   const addrs=Object.keys(traders);
   $('chips').innerHTML=addrs.map(a=>{
     const t=traders[a];
     const dc=t.status==='loaded'?'#1D9E75':t.status==='error'?'#B02A2A':'#BA7517';
     return`<button class="chip${a===activeAddr?' active':''}" onclick="selectAddr('${a}')">
-      <span class="dot" style="background:${dc}"></span>${a.slice(0,6)}…${a.slice(-4)}
-      ${addrs.length>1?`<span onclick="event.stopPropagation();rmAddr('${a}')" style="opacity:.35;margin-left:3px;font-size:13px;line-height:1">×</span>`:''}
+      <span class="dot" style="background:${dc}"></span>${a.slice(0,6)}â¦${a.slice(-4)}
+      ${addrs.length>1?`<span onclick="event.stopPropagation();rmAddr('${a}')" style="opacity:.35;margin-left:3px;font-size:13px;line-height:1">Ã</span>`:''}
     </button>`;
   }).join('');
 }
