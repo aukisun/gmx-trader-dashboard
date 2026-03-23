@@ -235,8 +235,7 @@ const MKTS={'0x47c031236e19d024b42f8ae6780e44a573170703':'BTC','0x70d95587d40a2c
 const mktN=a=>MKTS[a?.toLowerCase()]??(a?a.slice(0,5)+'…':'?');
 
 async function fetchGMX(addr){
-  const q=`{tradeActions(where:{account:"${addr.toLowerCase()}"}orderBy:transaction__timestamp orderDirection:asc first:1000){eventName transaction{timestamp}marketAddress isLong sizeDeltaUsd realizedPnlUsd}}`;
-  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
+  const q=`{tradeActions(where:{account_eq:"${addr.toLowerCase()}"},orderBy:timestamp_ASC,limit:1000){eventName timestamp marketAddress isLong sizeDeltaUsd realizedPnlUsd}}`;  const r=await fetch(SG,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q})});
   const j=await r.json();
   if(j.errors?.length)throw new Error(j.errors[0].message);
   const ev=(j.data?.tradeActions??[]).filter(t=>t.eventName==='PositionIncrease'||t.eventName==='PositionDecrease');
