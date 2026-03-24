@@ -129,6 +129,32 @@ tbody tr:hover td{background:var(--bg)}
   </div>
 </div>
 <script>
+
+const MMAP={
+  '0x47c031236e19d024b42f8ae6780e44a573170703':'BTC',
+  '0x70d95587d40a2caf56bd97485ab3eec10bee6336':'ETH',
+  '0xc25cef6061cf5de5eb761b50e4743c1f5d7e5407':'LINK',
+  '0x09400d9db990d5ed3f35d7be61dfaeb900af03c9':'SOL',
+  '0xd9535bb5f58a1a75032416f2dfe7880c30575a41':'ARB',
+  '0x63dc80ee90f26363b3fcd609f3305958603993e5':'DOGE',
+  '0x2b477989a149b17073d9c9c82ec9cefece472e96':'AAVE',
+  '0x7f1fa204bb700853d36994da19f830b6ad18455c':'NEAR',
+  '0xd31c7d40d2d9f54c7cfab7ba81a6d73b6f2fdc6e':'LTC',
+  '0x1529876a9348d61c6c4a3eee1fe6cbf1117ca485':'XRP',
+  '0x7c11f78ce78768518d743e81fdfa2f860c6b9a77':'BNB',
+  '0x09e926a72dfbe2526c7e5b2f3e1a4b2c5d6e7f8a':'PEPE',
+  '0x4340561ce2e4aff2e01c1c8d0bf56e7fd74e20e9':'OP',
+};
+function resolveMarket(raw){
+  if(!raw)return'?';
+  const lc=raw.toLowerCase();
+  if(MMAP[lc])return MMAP[lc];
+  if(raw.includes('/'))return raw.split('/')[0];
+  if(raw.length<=8&&/^[A-Z0-9]+$/i.test(raw))return raw.toUpperCase();
+  const found=Object.keys(MMAP).find(k=>lc.startsWith(k.slice(0,10)));
+  if(found)return MMAP[found];
+  return raw.slice(0,4)+'..';
+}
 const DEMO_POS=[
   {pair:'BTC/USD',lev:'14.58x',side:'Long',size:149997.77,net:10247.18,upnl:-47.79,upct:-0.46,col:10290.78,entry:68699.49,mark:68665.93,liq:64366.87},
   {pair:'XRP/USD',lev:'8.62x',side:'Long',size:1199842.22,net:67147.31,upnl:-71993.63,upct:-51.50,col:139140.94,entry:1.4651,mark:1.3793,liq:1.3033},
@@ -172,11 +198,11 @@ async function fetchGMX(addr){
   const curve=ev.map(t=>{cum+=parseFloat(t.basePnlUsd??0)/1e30;return{l:new Date(t.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric'}),p:cum}});
   const closes=ev.filter(t=>t.type==='decrease');
   const wins=closes.filter(t=>t.isWin).length;
-  const mmap={};ev.forEach(t=>{const m=(t.market||'?').split('/')[0];mmap[m]=(mmap[m]??0)+1});
+  const mmap={};ev.forEach(t=>{const m=resolveMarket(t.market);mmap[m]=(mmap[m]??0)+1});
   const hrs=Array(24).fill(0);ev.forEach(t=>{hrs[new Date(t.timestamp*1000).getUTCHours()]++});
   const activity=[...closes].reverse().slice(0,30).map(t=>({
     date:new Date(t.timestamp*1000).toLocaleDateString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}),
-    market:t.market||'?',side:t.isLong?'Long':'Short',
+    market:resolveMarket(t.market)+'/USD',side:t.isLong?'Long':'Short',
     size:fmtK(parseFloat(t.sizeDeltaUsd??0)/1e30),
     rpnl:parseFloat(t.basePnlUsd??0)/1e30,
     type:t.type==='decrease'?'Market Decrease':'Market Increase'
